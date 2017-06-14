@@ -125,7 +125,7 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
     func handleNextPerson() {
         slideInIDCardAndPerson()
-        circleTimer.start(beginingValue: 30)
+        circleTimer.start(beginingValue: 4)
         
     }
     
@@ -159,21 +159,21 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
 
             if IDCardContainer.center.x < 70 {
                 UIView.animate(withDuration: 0.3, animations: {
+                    self.thumbImageView.alpha = 0
                     self.IDCardContainer.center.x = -self.view.bounds.width / 2
                     self.personImage.center.x = -self.view.bounds.width / 2
                 }) { (_) in
                     // completion block
-                    self.thumbImageView.alpha = 0
                     self.handleLeftSwipe()
 
                 }
                 return
             } else if IDCardContainer.center.x > (view.frame.width - 70) {
                 UIView.animate(withDuration: 0.3, animations: {
+                    self.thumbImageView.alpha = 0
                     self.IDCardContainer.center.x = self.view.bounds.width * 2
                     self.personImage.center.x = self.view.bounds.width * 2
                 }) { (_) in
-                    self.thumbImageView.alpha = 0
                     self.IDCardContainer.center.x = -self.view.bounds.width / 2
                     self.personImage.center.x = -self.view.bounds.width / 2
                     self.handleRightSwipe()
@@ -418,7 +418,7 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
     let circleTimer: SRCountdownTimer = {
         let timer = SRCountdownTimer()
-        timer.start(beginingValue: 30)
+        timer.start(beginingValue: 4)
         timer.backgroundColor = .clear
         timer.lineWidth = 5
         timer.lineColor = .white
