@@ -125,7 +125,7 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
     func handleNextPerson() {
         slideInIDCardAndPerson()
-        circleTimer.start(beginingValue: 1)
+        circleTimer.start(beginingValue: 2)
         
     }
     
@@ -418,7 +418,7 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
     let circleTimer: SRCountdownTimer = {
         let timer = SRCountdownTimer()
-        timer.start(beginingValue: 1)
+        timer.start(beginingValue: 2)
         timer.backgroundColor = .clear
         timer.lineWidth = 5
         timer.lineColor = .white
