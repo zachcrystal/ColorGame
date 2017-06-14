@@ -42,7 +42,7 @@ class IDCardContainerView: UIView {
     }
     
     func loadStyleAndLayout() {
-        self.frame.size = CGSize(width: 260, height: 200)
+        self.frame.size = CGSize(width: 280, height: 240)
         
         backgroundColor = .white
         layer.borderColor = UIColor.black.cgColor
