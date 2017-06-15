@@ -6,14 +6,7 @@
 //  Copyright © 2017 Zach Crystal. All rights reserved.
 //
 
-/*
- TODO: Swiping
- - make the entire screen swipeable but only move the person and the card...
- - it won't call the slide out method, but it will call the slide in method
- */
-
 import UIKit
-import AVFoundation
 
 class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
@@ -30,8 +23,6 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     // MARK: - Isolated Properties
     
     var people: [Person]?
-    
-
     
     var highScore: Int = 0
     
@@ -74,6 +65,12 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
         let iv = UIImageView()
         iv.alpha = 0
         return iv
+    }()
+    
+    let nextButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "nextbutton"), for: .normal)
+        return button
     }()
     
     // MARK: - Action Selectors
@@ -125,7 +122,7 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
     func handleNextPerson() {
         slideInIDCardAndPerson()
-        circleTimer.start(beginingValue: 2)
+        circleTimer.start(beginningValue: 2)
         
     }
     
@@ -158,18 +155,17 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
         if sender.state == UIGestureRecognizerState.ended {
 
             if IDCardContainer.center.x < 70 {
-                UIView.animate(withDuration: 0.3, animations: {
+                UIView.animate(withDuration: 0.2, animations: {
                     self.thumbImageView.alpha = 0
                     self.IDCardContainer.center.x = -self.view.bounds.width / 2
                     self.personImage.center.x = -self.view.bounds.width / 2
                 }) { (_) in
-                    // completion block
                     self.handleLeftSwipe()
 
                 }
                 return
             } else if IDCardContainer.center.x > (view.frame.width - 70) {
-                UIView.animate(withDuration: 0.3, animations: {
+                UIView.animate(withDuration: 0.2, animations: {
                     self.thumbImageView.alpha = 0
                     self.IDCardContainer.center.x = self.view.bounds.width * 2
                     self.personImage.center.x = self.view.bounds.width * 2
@@ -181,7 +177,6 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
                 return
 
             }
-    
     
             UIView.animate(withDuration: 0.2) {
                 self.view.layoutIfNeeded()
@@ -221,11 +216,12 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     }
     
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .white
+
         
         circleTimer.delegate = self
         
@@ -235,8 +231,9 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
         
         selectRandomPerson()
         slideInIDCardAndPerson()
-        //        playMusic()
         
+
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -279,6 +276,13 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
         thumbImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         setupIDCard()
+        
+//        view.addSubview(nextButton)
+//        nextButton.anchor(top: tableImageView.topAnchor, left: nil, bottom: tableImageView.bottomAnchor, right: nil, paddingTop: 15, paddingLeft: 0, paddingBottom: 15, paddingRight: 0, width: 0, height: 0)
+//        nextButton.centerYAnchor.constraint(equalTo: tableImageView.centerYAnchor)
+
+        
+        
         
     }
     
@@ -331,9 +335,10 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
         //        personImage.center.x = self.view.bounds.width / 2
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: .curveEaseIn, animations: {
             self.personImage.center.x = self.view.bounds.width * 2
+            self.selectRandomPerson()
+
         }) { (_) in
             self.personImage.center.x = -self.view.bounds.width / 2
-            self.selectRandomPerson()
         }
         
     }
@@ -418,7 +423,7 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
     let circleTimer: SRCountdownTimer = {
         let timer = SRCountdownTimer()
-        timer.start(beginingValue: 2)
+        timer.start(beginningValue: 2)
         timer.backgroundColor = .clear
         timer.lineWidth = 5
         timer.lineColor = .white
@@ -427,6 +432,14 @@ class GameViewController: UIViewController, SRCountdownTimerDelegate {
     
     
     func timerDidEnd() {
-        showIncorrectResponseAlert(getLost: true, timerDidRunOut: true)
+        let gameoverViewController = GameoverViewController()
+        gameoverViewController.modalPresentationStyle = .overCurrentContext
+        gameoverViewController.modalTransitionStyle = .crossDissolve
+        present(gameoverViewController, animated: true, completion: nil)
+        
+//        showIncorrectResponseAlert(getLost: true, timerDidRunOut: true)
     }
+
+
 }
+

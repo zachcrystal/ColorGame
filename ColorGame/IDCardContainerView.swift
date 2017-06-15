@@ -31,6 +31,9 @@ class IDCardContainerView: UIView {
         return view
     }()
     
+
+
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -70,7 +73,7 @@ class IDCardContainerView: UIView {
         
         self.layer.transform = transform
         self.layer.zPosition = 100
-        
+
         
         IDCard.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
         addSubview(IDCard)

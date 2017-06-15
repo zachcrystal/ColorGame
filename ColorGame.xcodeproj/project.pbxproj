@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		923436751EF1175E004CEA6D /* SRCountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923436741EF1175E004CEA6D /* SRCountdownTimer.swift */; };
+		9234369B1EF242A5004CEA6D /* GameoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234369A1EF242A5004CEA6D /* GameoverViewController.swift */; };
+		9234369E1EF243B6004CEA6D /* GameoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234369D1EF243B6004CEA6D /* GameoverView.swift */; };
 		92D036A81EF0A2AD00B7D082 /* IDCardContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D036A71EF0A2AD00B7D082 /* IDCardContainerView.swift */; };
-		92D036AA1EF0CCEC00B7D082 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D036A91EF0CCEC00B7D082 /* Sound.swift */; };
 		92E84CF41EEE07D80074C05A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E84CF31EEE07D80074C05A /* AppDelegate.swift */; };
 		92E84CFB1EEE07D80074C05A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E84CFA1EEE07D80074C05A /* Assets.xcassets */; };
 		92E84CFE1EEE07D80074C05A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E84CFC1EEE07D80074C05A /* LaunchScreen.storyboard */; };
@@ -22,8 +23,9 @@
 
 /* Begin PBXFileReference section */
 		923436741EF1175E004CEA6D /* SRCountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRCountdownTimer.swift; sourceTree = "<group>"; };
+		9234369A1EF242A5004CEA6D /* GameoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameoverViewController.swift; sourceTree = "<group>"; };
+		9234369D1EF243B6004CEA6D /* GameoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameoverView.swift; sourceTree = "<group>"; };
 		92D036A71EF0A2AD00B7D082 /* IDCardContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDCardContainerView.swift; sourceTree = "<group>"; };
-		92D036A91EF0CCEC00B7D082 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		92E84CF01EEE07D80074C05A /* ColorGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E84CF31EEE07D80074C05A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92E84CFA1EEE07D80074C05A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9234369C1EF243AA004CEA6D /* Gameover */ = {
+			isa = PBXGroup;
+			children = (
+				9234369A1EF242A5004CEA6D /* GameoverViewController.swift */,
+				9234369D1EF243B6004CEA6D /* GameoverView.swift */,
+			);
+			name = Gameover;
+			sourceTree = "<group>";
+		};
 		92E84CE71EEE07D80074C05A = {
 			isa = PBXGroup;
 			children = (
@@ -66,12 +77,12 @@
 		92E84CF21EEE07D80074C05A /* ColorGame */ = {
 			isa = PBXGroup;
 			children = (
+				9234369C1EF243AA004CEA6D /* Gameover */,
 				92E84D141EEE77C00074C05A /* People.json */,
 				92E84CF31EEE07D80074C05A /* AppDelegate.swift */,
 				92E84D0F1EEE4CC80074C05A /* Models */,
 				92E84D191EEEF7BA0074C05A /* Views */,
 				92E84D1A1EEEF7C20074C05A /* Controllers */,
-				92D036A91EF0CCEC00B7D082 /* Sound.swift */,
 				92E84CFA1EEE07D80074C05A /* Assets.xcassets */,
 				92E84CFC1EEE07D80074C05A /* LaunchScreen.storyboard */,
 				92E84CFF1EEE07D80074C05A /* Info.plist */,
@@ -188,12 +199,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				923436751EF1175E004CEA6D /* SRCountdownTimer.swift in Sources */,
-				92D036AA1EF0CCEC00B7D082 /* Sound.swift in Sources */,
 				92E84D171EEEE93C0074C05A /* IDCardView.swift in Sources */,
 				92D036A81EF0A2AD00B7D082 /* IDCardContainerView.swift in Sources */,
 				92E84CF41EEE07D80074C05A /* AppDelegate.swift in Sources */,
+				9234369B1EF242A5004CEA6D /* GameoverViewController.swift in Sources */,
 				92E84D0E1EEE4CBA0074C05A /* Person.swift in Sources */,
 				92E84D1C1EEEF8A40074C05A /* GameViewController.swift in Sources */,
+				9234369E1EF243B6004CEA6D /* GameoverView.swift in Sources */,
 				92E84D0A1EEE09A30074C05A /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

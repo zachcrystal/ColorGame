@@ -124,10 +124,10 @@ public class SRCountdownTimer: UIView {
      *   - beginingValue: Value to start countdown from.
      *   - interval: Interval between reducing the counter(1 second by default)
      */
-    public func start(beginingValue: Int, interval: TimeInterval = 1) {
-        totalTime = TimeInterval(beginingValue) * interval
+    public func start(beginningValue: Int, interval: TimeInterval = 1) {
+        totalTime = TimeInterval(beginningValue) * interval
         elapsedTime = 0
-        currentCounterValue = beginingValue
+        currentCounterValue = beginningValue
         
         timer?.invalidate()
         timer = Timer(timeInterval: fireInterval, repeats: true) { timer in
@@ -136,7 +136,7 @@ public class SRCountdownTimer: UIView {
             if self.elapsedTime < self.totalTime {
                 self.setNeedsDisplay()
                 
-                let computedCounterValue = beginingValue - Int(self.elapsedTime / interval)
+                let computedCounterValue = beginningValue - Int(self.elapsedTime / interval)
                 if computedCounterValue != self.currentCounterValue {
                     self.currentCounterValue = computedCounterValue
                 }

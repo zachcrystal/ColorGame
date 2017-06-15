@@ -60,7 +60,7 @@ class IDCardView: UIView {
         let label = UILabel()
         label.text = "123 Fake Street"
         label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 0
         return label
     }()
@@ -72,7 +72,6 @@ class IDCardView: UIView {
     }
 
     override func layoutSubviews() {
-        
         
         let stackView = UIStackView(arrangedSubviews: [identificationImageView, idBadgeImageView])
         stackView.distribution = .fillEqually
@@ -90,7 +89,7 @@ class IDCardView: UIView {
         addSubview(expiryLabel)
         addSubview(textStackView)
         
-        stackView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 12, paddingLeft: 9, paddingBottom: 0, paddingRight: 9, width: 0, height: (240 / 2) - 16)
+        stackView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 12, paddingLeft: 9, paddingBottom: 0, paddingRight: 9, width: 0, height: (280 / 2))
         
         expiryLabel.anchor(top: nil, left: nil, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 4, paddingRight: 8, width: 0, height: 0)
         textStackView.anchor(top: stackView.bottomAnchor, left: stackView.leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 2, paddingLeft: 0, paddingBottom: 4, paddingRight: 4, width: 0, height: 0)
